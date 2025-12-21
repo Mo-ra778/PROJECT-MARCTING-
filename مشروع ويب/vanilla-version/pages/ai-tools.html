@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات الذكاء الاصطناعي - صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/ai-tools.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+              <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title">أدوات الذكاء الاصطناعي</h1>
+                    <p class="page-subtitle">استخدم قوة الذكاء الاصطناعي لإنشاء محتوى مميز وجذاب</p>
+                </div>
+                <div class="header-right">
+                    <div class="ai-credits">
+                        <span class="credits-icon">⚡</span>
+                        <span class="credits-text">الرصيد: 150 نقطة</span>
+                    </div>
+                    <div class="header-profile">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <span class="profile-name">أحمد محمد</span>
+                            <span class="profile-role">صانع محتوى</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- AI Tools Content -->
+            <div class="ai-tools-content">
+                <!-- Filters: Categories + Search -->
+                <div class="tools-filters">
+                  <div class="filters-row">
+                    <div class="category-tabs" id="categoryTabs">
+                      <button class="tab-btn active" data-category="الكل">الكل</button>
+                      <button class="tab-btn" data-category="نصوص">نصوص</button>
+                      <button class="tab-btn" data-category="صور">صور</button>
+                      <button class="tab-btn" data-category="فيديو">فيديو</button>
+                      <button class="tab-btn" data-category="صوت">صوت</button>
+                      <button class="tab-btn" data-category="SEO">SEO</button>
+                      <button class="tab-btn" data-category="ترجمة">ترجمة</button>
+                      <button class="tab-btn" data-category="تحليل">تحليل</button>
+                      <button class="tab-btn" data-category="تخطيط">تخطيط</button>
+                      <button class="tab-btn" data-category="سوشيال">سوشيال</button>
+                    </div>
+                    <div class="tools-search">
+                      <input type="text" id="toolsSearchInput" class="search-input" placeholder="ابحث عن أداة..." />
+                    </div>
+                  </div>
+                </div>
+                <!-- Tools Grid -->
+                <div class="tools-grid">
+                    <!-- Content Generator -->
+                    <div class="tool-card active" id="contentGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">✍️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد المحتوى</h3>
+                                <p class="tool-description">اكتب محتوى إبداعي ومميز بمساعدة الذكاء الاصطناعي</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">5 نقاط</span>
+                            <span class="tool-usage">استخدم 23 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Text Optimizer -->
+                    <div class="tool-card" id="textOptimizer">
+                        <div class="tool-header">
+                            <div class="tool-icon">🔧</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">محسن النصوص</h3>
+                                <p class="tool-description">حسن وطور نصوصك الموجودة لتصبح أكثر جاذبية</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 15 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Hashtag Generator -->
+                    <div class="tool-card" id="hashtagGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">#️⃣</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد الهاشتاغات</h3>
+                                <p class="tool-description">احصل على هاشتاغات مناسبة ورائجة لمحتواك</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 31 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Caption Writer -->
+                    <div class="tool-card" id="captionWriter">
+                        <div class="tool-header">
+                            <div class="tool-icon">💬</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">كاتب التعليقات</h3>
+                                <p class="tool-description">اكتب تعليقات جذابة ومناسبة لصورك ومقاطعك</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">4 نقاط</span>
+                            <span class="tool-usage">استخدم 18 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Generator -->
+                    <div class="tool-card" id="imageGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎨</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد الصور</h3>
+                                <p class="tool-description">أنشئ صوراً احترافية من أوصاف نصية</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">6 نقاط</span>
+                            <span class="tool-usage">استخدم 40 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Video Generator -->
+                    <div class="tool-card" id="videoGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎬</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد الفيديو</h3>
+                                <p class="tool-description">حوّل النصوص إلى مقاطع فيديو قصيرة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">10 نقاط</span>
+                            <span class="tool-usage">استخدم 12 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnail Maker -->
+                    <div class="tool-card" id="thumbnailMaker">
+                        <div class="tool-header">
+                            <div class="tool-icon">🖼️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">صانع الصور المصغرة</h3>
+                                <p class="tool-description">صمم صوراً مصغرة جذابة ليوتيوب وتيك توك</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 28 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Voiceover Generator -->
+                    <div class="tool-card" id="voiceoverGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎙️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد التعليق الصوتي</h3>
+                                <p class="tool-description">حوّل النص إلى صوت طبيعي بعدة لهجات</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">5 نقاط</span>
+                            <span class="tool-usage">استخدم 22 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Transcript to Article -->
+                    <div class="tool-card" id="transcriptToArticle">
+                        <div class="tool-header">
+                            <div class="tool-icon">📝</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">تحويل التفريغ إلى مقال</h3>
+                                <p class="tool-description">حوّل تفريغ الفيديو/الصوت إلى مقال منسق</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">4 نقاط</span>
+                            <span class="tool-usage">استخدم 16 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Summarizer -->
+                    <div class="tool-card" id="summarizer">
+                        <div class="tool-header">
+                            <div class="tool-icon">✂️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">ملخص المحتوى</h3>
+                                <p class="tool-description">لخص المقالات أو الفيديوهات بسرعة وذكاء</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 33 مرة</span>
+             
+                        </div>
+                    </div>
+
+                    <!-- Paraphraser -->
+                    <div class="tool-card" id="paraphraser">
+                        <div class="tool-header">
+                            <div class="tool-icon">🔁</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">إعادة الصياغة</h3>
+                                <p class="tool-description">أعد كتابة النصوص بأسلوب واضح وجذاب</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 29 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Title Generator -->
+                    <div class="tool-card" id="titleGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🏷️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد العناوين</h3>
+                                <p class="tool-description">أنشئ عناوين قوية ومقنعة للفيديوهات والمقالات</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 47 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Keyword Extractor -->
+                    <div class="tool-card" id="keywordExtractor">
+                        <div class="tool-header">
+                            <div class="tool-icon">🔑</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">الكلمات المفتاحية</h3>
+                                <p class="tool-description">استخرج كلمات مفتاحية مهمة لمحتواك</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 21 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- SEO Optimizer -->
+                    <div class="tool-card" id="seoOptimizer">
+                        <div class="tool-header">
+                            <div class="tool-icon">🚀</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">محسن SEO</h3>
+                                <p class="tool-description">حسّن ظهور محتواك في محركات البحث</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">4 نقاط</span>
+                            <span class="tool-usage">استخدم 19 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Outline Generator -->
+                    <div class="tool-card" id="outlineGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🧭</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مخطط المقال</h3>
+                                <p class="tool-description">أنشئ هيكلاً منظماً للمقالات الطويلة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 26 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Idea Brainstorm -->
+                    <div class="tool-card" id="ideaBrainstorm">
+                        <div class="tool-header">
+                            <div class="tool-icon">💡</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">عصف ذهني للأفكار</h3>
+                                <p class="tool-description">احصل على أفكار محتوى جديدة ومبتكرة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 52 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Meme Generator -->
+                    <div class="tool-card" id="memeGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">😂</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مولد الميمات</h3>
+                                <p class="tool-description">اصنع ميمات مرحة قابلة للمشاركة بسهولة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 14 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Background Remover -->
+                    <div class="tool-card" id="backgroundRemover">
+                        <div class="tool-header">
+                            <div class="tool-icon">🧹</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">إزالة الخلفية</h3>
+                                <p class="tool-description">أزل خلفية الصور بدقة عالية وسرعة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 31 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Style Transfer -->
+                    <div class="tool-card" id="styleTransfer">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎭</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">نقل أسلوب الصورة</h3>
+                                <p class="tool-description">حوّل صورك إلى أنماط فنية مختلفة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">5 نقاط</span>
+                            <span class="tool-usage">استخدم 9 مرات</span>
+                        </div>
+                    </div>
+
+                    <!-- Script to Scenes -->
+                    <div class="tool-card" id="scriptToScenes">
+                        <div class="tool-header">
+                            <div class="tool-icon">🎞️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">تحويل النص إلى مشاهد</h3>
+                                <p class="tool-description">قسّم النص إلى لقطات ومشاهد قابلة للتنفيذ</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">4 نقاط</span>
+                            <span class="tool-usage">استخدم 11 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Subtitle Generator -->
+                    <div class="tool-card" id="subtitleGenerator">
+                        <div class="tool-header">
+                            <div class="tool-icon">💬</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">توليد الترجمة النصية</h3>
+                                <p class="tool-description">أنشئ ترجمات دقيقة للفيديوهات بسرعة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 24 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Translator -->
+                    <div class="tool-card" id="translator">
+                        <div class="tool-header">
+                            <div class="tool-icon">🌍</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">مترجم متعدد اللغات</h3>
+                                <p class="tool-description">ترجم المحتوى بدقة إلى عدة لغات</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 38 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Sentiment Analyzer -->
+                    <div class="tool-card" id="sentimentAnalyzer">
+                        <div class="tool-header">
+                            <div class="tool-icon">🧠</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">محلل المشاعر</h3>
+                                <p class="tool-description">حلّل نبرة النصوص: إيجابي، سلبي، محايد</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 17 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- A/B Headline Tester -->
+                    <div class="tool-card" id="abHeadlineTester">
+                        <div class="tool-header">
+                            <div class="tool-icon">🧪</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">اختبار A/B للعناوين</h3>
+                                <p class="tool-description">جرّب أكثر من عنوان واختر الأفضل أداءً</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 13 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Calendar -->
+                    <div class="tool-card" id="contentCalendar">
+                        <div class="tool-header">
+                            <div class="tool-icon">📅</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">اقتراح تقويم محتوى</h3>
+                                <p class="tool-description">اقترح خطة نشر أسبوعية أو شهرية ذكية</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">5 نقاط</span>
+                            <span class="tool-usage">استخدم 8 مرات</span>
+                        </div>
+                    </div>
+
+                    <!-- Image Upscaler -->
+                    <div class="tool-card" id="imageUpscaler">
+                        <div class="tool-header">
+                            <div class="tool-icon">📈</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">تحسين دقة الصور</h3>
+                                <p class="tool-description">ارفع دقة الصور مع الحفاظ على التفاصيل</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">4 نقاط</span>
+                            <span class="tool-usage">استخدم 20 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Noise Reducer -->
+                    <div class="tool-card" id="noiseReducer">
+                        <div class="tool-header">
+                            <div class="tool-icon">🔇</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">تقليل ضوضاء الصوت</h3>
+                                <p class="tool-description">نظّف التسجيلات الصوتية من الضوضاء</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">3 نقاط</span>
+                            <span class="tool-usage">استخدم 18 مرة</span>
+                        </div>
+                    </div>
+
+                    <!-- Watermark Adder -->
+                    <div class="tool-card" id="watermarkAdder">
+                        <div class="tool-header">
+                            <div class="tool-icon">🖋️</div>
+                            <div class="tool-info">
+                                <h3 class="tool-title">إضافة علامة مائية</h3>
+                                <p class="tool-description">احمِ حقوقك بإضافة علامة مائية مخصصة</p>
+                            </div>
+                        </div>
+                        <div class="tool-stats">
+                            <span class="tool-cost">2 نقاط</span>
+                            <span class="tool-usage">استخدم 10 مرات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Workspace -->
+                <div class="ai-workspace">
+                    <!-- Content Generator Tool -->
+                    <div class="workspace-panel active" id="contentGeneratorPanel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">مولد المحتوى</h2>
+                            <div class="panel-actions">
+                                <button class="action-btn" onclick="clearWorkspace()">مسح</button>
+                                <button class="action-btn primary" onclick="generateContent()">توليد</button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-content">
+                            <div class="input-section">
+                                <div class="form-group">
+                                    <label class="form-label">نوع المحتوى</label>
+                                    <select class="form-select" id="contentType">
+                                        <option value="post">منشور اجتماعي</option>
+                                        <option value="article">مقال</option>
+                                        <option value="story">قصة</option>
+                                        <option value="thread">سلسلة تغريدات</option>
+                                        <option value="script">نص فيديو</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">الموضوع أو الفكرة</label>
+                                    <textarea class="form-textarea" id="contentTopic" placeholder="اكتب الموضوع أو الفكرة التي تريد إنشاء محتوى عنها..." rows="3"></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">النبرة</label>
+                                        <select class="form-select" id="contentTone">
+                                            <option value="professional">مهنية</option>
+                                            <option value="casual">عادية</option>
+                                            <option value="friendly">ودية</option>
+                                            <option value="humorous">فكاهية</option>
+                                            <option value="inspiring">ملهمة</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">الطول</label>
+                                        <select class="form-select" id="contentLength">
+                                            <option value="short">قصير</option>
+                                            <option value="medium">متوسط</option>
+                                            <option value="long">طويل</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">الجمهور المستهدف</label>
+                                    <input type="text" class="form-input" id="targetAudience" placeholder="مثال: الشباب المهتمين بالتكنولوجيا">
+                                </div>
+                            </div>
+
+                            <div class="output-section">
+                                <div class="output-header">
+                                    <h3 class="output-title">المحتوى المولد</h3>
+                                    <div class="output-actions">
+                                        <button class="output-btn" onclick="copyContent()" id="copyBtn">نسخ</button>
+                                        <button class="output-btn" onclick="saveContent()">حفظ</button>
+                                        <button class="output-btn" onclick="regenerateContent()">إعادة توليد</button>
+                                    </div>
+                                </div>
+                                <div class="output-content" id="generatedContent">
+                                    <div class="output-placeholder">
+                                        <div class="placeholder-icon">🤖</div>
+                                        <p>اكتب موضوعك واضغط "توليد" لإنشاء محتوى مميز بالذكاء الاصطناعي</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text Optimizer Tool -->
+                    <div class="workspace-panel" id="textOptimizerPanel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">محسن النصوص</h2>
+                            <div class="panel-actions">
+                                <button class="action-btn" onclick="clearOptimizer()">مسح</button>
+                                <button class="action-btn primary" onclick="optimizeText()">تحسين</button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-content">
+                            <div class="optimizer-layout">
+                                <div class="optimizer-input">
+                                    <h3 class="section-title">النص الأصلي</h3>
+                                    <textarea class="form-textarea" id="originalText" placeholder="الصق النص الذي تريد تحسينه هنا..." rows="10"></textarea>
+                                    
+                                    <div class="optimization-options">
+                                        <h4 class="options-title">خيارات التحسين</h4>
+                                        <div class="options-grid">
+                                            <label class="option-item">
+                                                <input type="checkbox" id="improveClarity" checked>
+                                                <span class="option-text">تحسين الوضوح</span>
+                                            </label>
+                                            <label class="option-item">
+                                                <input type="checkbox" id="enhanceEngagement" checked>
+                                                <span class="option-text">زيادة التفاعل</span>
+                                            </label>
+                                            <label class="option-item">
+                                                <input type="checkbox" id="fixGrammar">
+                                                <span class="option-text">تصحيح النحو</span>
+                                            </label>
+                                            <label class="option-item">
+                                                <input type="checkbox" id="addEmojis">
+                                                <span class="option-text">إضافة رموز تعبيرية</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="optimizer-output">
+                                    <h3 class="section-title">النص المحسن</h3>
+                                    <div class="optimized-content" id="optimizedText">
+                                        <div class="output-placeholder">
+                                            <div class="placeholder-icon">🔧</div>
+                                            <p>الصق نصك واختر خيارات التحسين ثم اضغط "تحسين"</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="improvement-summary" id="improvementSummary" style="display: none;">
+                                        <h4 class="summary-title">ملخص التحسينات</h4>
+                                        <div class="summary-items" id="summaryItems"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hashtag Generator Tool -->
+                    <div class="workspace-panel" id="hashtagGeneratorPanel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">مولد الهاشتاغات</h2>
+                            <div class="panel-actions">
+                                <button class="action-btn" onclick="clearHashtags()">مسح</button>
+                                <button class="action-btn primary" onclick="generateHashtags()">توليد</button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-content">
+                            <div class="hashtag-input">
+                                <div class="form-group">
+                                    <label class="form-label">وصف المحتوى</label>
+                                    <textarea class="form-textarea" id="hashtagContent" placeholder="اكتب وصفاً مختصراً لمحتواك..." rows="3"></textarea>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">المنصة</label>
+                                        <select class="form-select" id="hashtagPlatform">
+                                            <option value="instagram">إنستغرام</option>
+                                            <option value="twitter">تويتر</option>
+                                            <option value="tiktok">تيك توك</option>
+                                            <option value="youtube">يوتيوب</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">عدد الهاشتاغات</label>
+                                        <select class="form-select" id="hashtagCount">
+                                            <option value="5">5 هاشتاغات</option>
+                                            <option value="10" selected>10 هاشتاغات</option>
+                                            <option value="15">15 هاشتاغ</option>
+                                            <option value="20">20 هاشتاغ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hashtag-output">
+                                <div class="hashtag-categories" id="hashtagCategories">
+                                    <!-- Categories will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Caption Writer Tool -->
+                    <div class="workspace-panel" id="captionWriterPanel">
+                        <div class="panel-header">
+                            <h2 class="panel-title">كاتب التعليقات</h2>
+                            <div class="panel-actions">
+                                <button class="action-btn" onclick="clearCaption()">مسح</button>
+                                <button class="action-btn primary" onclick="generateCaption()">كتابة</button>
+                            </div>
+                        </div>
+
+                        <div class="workspace-content">
+                            <div class="caption-layout">
+                                <div class="caption-input">
+                                    <div class="form-group">
+                                        <label class="form-label">وصف الصورة/الفيديو</label>
+                                        <textarea class="form-textarea" id="mediaDescription" placeholder="اكتب وصفاً للصورة أو الفيديو..." rows="4"></textarea>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">نوع المحتوى</label>
+                                            <select class="form-select" id="captionType">
+                                                <option value="photo">صورة</option>
+                                                <option value="video">فيديو</option>
+                                                <option value="carousel">مجموعة صور</option>
+                                                <option value="story">ستوري</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">المزاج</label>
+                                            <select class="form-select" id="captionMood">
+                                                <option value="motivational">تحفيزي</option>
+                                                <option value="fun">مرح</option>
+                                                <option value="educational">تعليمي</option>
+                                                <option value="emotional">عاطفي</option>
+                                                <option value="promotional">ترويجي</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="caption-options">
+                                        <label class="option-item">
+                                            <input type="checkbox" id="includeHashtags" checked>
+                                            <span class="option-text">تضمين هاشتاغات</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="checkbox" id="includeEmojis" checked>
+                                            <span class="option-text">تضمين رموز تعبيرية</span>
+                                        </label>
+                                        <label class="option-item">
+                                            <input type="checkbox" id="includeCTA">
+                                            <span class="option-text">دعوة للعمل</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="caption-output">
+                                    <div class="caption-variations" id="captionVariations">
+                                        <div class="output-placeholder">
+                                            <div class="placeholder-icon">💬</div>
+                                            <p>اكتب وصف محتواك واضغط "كتابة" للحصول على تعليقات مميزة</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usage History -->
+                <div class="usage-history">
+                    <div class="history-header">
+                        <h2 class="history-title">سجل الاستخدام</h2>
+                        <button class="clear-history-btn" onclick="clearHistory()">مسح السجل</button>
+                    </div>
+                    <div class="history-list" id="historyList">
+                        <!-- History items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/dashboards.js"></script>
+    <script src="../js/ai-tools.js"></script>
+    <script src="../js/layout.js"></script>
+</body>
+</html>
+

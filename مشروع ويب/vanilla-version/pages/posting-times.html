@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أوقات النشر - منصة صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+              <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+             <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>أوقات النشر المثلى</h1>
+                    <p class="page-subtitle">اكتشف أفضل أوقات النشر لكل منصة</p>
+                </div>
+                <div class="header-right">
+                    <div class="header-search">
+                        <input type="text" placeholder="البحث..." class="search-input">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="header-notifications">
+                        <button class="notification-btn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="header-profile">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <span class="profile-name"> محمد إدريس </span>
+                            <span class="profile-role">صانع محتوى</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+
+            <!-- Posting Times Content -->
+            <div class="posting-times-container">
+                <!-- Platform Selector -->
+                <div class="platform-selector">
+                    <button class="platform-btn active" data-platform="all">
+                        <i class="fas fa-globe"></i>
+                        جميع المنصات
+                    </button>
+                    <button class="platform-btn" data-platform="instagram">
+                        <i class="fab fa-instagram"></i>
+                        إنستغرام
+                    </button>
+                    <button class="platform-btn" data-platform="tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        تيك توك
+                    </button>
+                    <button class="platform-btn" data-platform="youtube">
+                        <i class="fab fa-youtube"></i>
+                        يوتيوب
+                    </button>
+                    <button class="platform-btn" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        تويتر
+                    </button>
+                </div>
+
+                <!-- Time Schedule Grid -->
+                <div class="schedule-grid">
+                    <div class="schedule-header">
+                        <div class="time-column">الوقت</div>
+                        <div class="day-column">الأحد</div>
+                        <div class="day-column">الاثنين</div>
+                        <div class="day-column">الثلاثاء</div>
+                        <div class="day-column">الأربعاء</div>
+                        <div class="day-column">الخميس</div>
+                        <div class="day-column">الجمعة</div>
+                        <div class="day-column">السبت</div>
+                    </div>
+                    <div class="schedule-body" id="scheduleBody">
+                        <!-- Schedule will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Best Times Summary -->
+                <div class="best-times-summary">
+                    <h3>أفضل أوقات النشر</h3>
+                    <div class="summary-grid" id="summaryGrid">
+                        <!-- Summary will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Analytics Insights -->
+                <div class="analytics-insights">
+                    <h3>رؤى تحليلية</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>أفضل يوم للنشر</h4>
+                                <p>الثلاثاء يحقق أعلى معدل تفاعل</p>
+                                <span class="insight-value">+23%</span>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>أفضل وقت عام</h4>
+                                <p>من 7-9 مساءً الأكثر نشاطاً</p>
+                                <span class="insight-value">+31%</span>
+                            </div>
+                        </div>
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>ذروة الجمهور</h4>
+                                <p>85% من جمهورك نشط مساءً</p>
+                                <span class="insight-value">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/pages.js"></script>
+    <script src="../js/layout.js"></script>
+</body>
+</html>

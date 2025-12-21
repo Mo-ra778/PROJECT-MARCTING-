@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإعدادات - منصة صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+             <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>الإعدادات</h1>
+                    <p>إدارة حسابك وتفضيلاتك</p>
+                </div>
+            </header>
+
+            <!-- Settings Content -->
+            <div class="settings-container">
+                <!-- Settings Navigation -->
+                <div class="settings-nav">
+                    <button class="settings-tab active" data-tab="profile">
+                        <i class="fas fa-user"></i>
+                        الملف الشخصي
+                    </button>
+                    <button class="settings-tab" data-tab="accounts">
+                        <i class="fas fa-link"></i>
+                        ربط الحسابات
+                    </button>
+                    <button class="settings-tab" data-tab="notifications">
+                        <i class="fas fa-bell"></i>
+                        الإشعارات
+                    </button>
+                    <button class="settings-tab" data-tab="privacy">
+                        <i class="fas fa-shield-alt"></i>
+                        الخصوصية
+                    </button>
+                    <button class="settings-tab" data-tab="billing">
+                        <i class="fas fa-credit-card"></i>
+                        الفواتير
+                    </button>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- Profile Tab -->
+                    <div class="settings-panel active" id="profile">
+                        <h3>الملف الشخصي</h3>
+                        <form class="settings-form">
+                            <div class="profile-photo">
+                                <img src="/placeholder.svg?height=100&width=100" alt="صورة الملف الشخصي" id="profileImage">
+                                <button type="button" class="change-photo-btn">
+                                    <i class="fas fa-camera"></i>
+                                    تغيير الصورة
+                                </button>
+                                <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>الاسم الأول</label>
+                                    <input type="text" value="أحمد" id="firstName">
+                                </div>
+                                <div class="form-group">
+                                    <label>الاسم الأخير</label>
+                                    <input type="text" value="محمد" id="lastName">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>البريد الإلكتروني</label>
+                                <input type="email" value="ahmed@example.com" id="email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>رقم الهاتف</label>
+                                <input type="tel" value="+966501234567" id="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>نبذة عنك</label>
+                                <textarea rows="4" placeholder="اكتب نبذة مختصرة عنك..." id="bio"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary">حفظ التغييرات</button>
+                        </form>
+                    </div>
+
+                    <!-- Accounts Tab -->
+                    <div class="settings-panel" id="accounts">
+                        <h3>ربط الحسابات</h3>
+                        <div class="connected-accounts">
+                            <div class="account-item">
+                                <div class="account-info">
+                                    <i class="fab fa-instagram"></i>
+                                    <div>
+                                        <h4>إنستغرام</h4>
+                                        <p>@ahmed_content</p>
+                                    </div>
+                                </div>
+                                <button class="btn-danger">إلغاء الربط</button>
+                            </div>
+                            
+                            <div class="account-item">
+                                <div class="account-info">
+                                    <i class="fab fa-tiktok"></i>
+                                    <div>
+                                        <h4>تيك توك</h4>
+                                        <p>غير مربوط</p>
+                                    </div>
+                                </div>
+                                <button class="btn-primary">ربط الحساب</button>
+                            </div>
+                            
+                            <div class="account-item">
+                                <div class="account-info">
+                                    <i class="fab fa-youtube"></i>
+                                    <div>
+                                        <h4>يوتيوب</h4>
+                                        <p>Ahmed Content</p>
+                                    </div>
+                                </div>
+                                <button class="btn-danger">إلغاء الربط</button>
+                            </div>
+                            
+                            <div class="account-item">
+                                <div class="account-info">
+                                    <i class="fab fa-twitter"></i>
+                                    <div>
+                                        <h4>تويتر</h4>
+                                        <p>غير مربوط</p>
+                                    </div>
+                                </div>
+                                <button class="btn-primary">ربط الحساب</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Tab -->
+                    <div class="settings-panel" id="notifications">
+                        <h3>إعدادات الإشعارات</h3>
+                        <div class="notification-settings">
+                            <div class="notification-group">
+                                <h4>إشعارات التطبيق</h4>
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <span>الترندات الجديدة</span>
+                                        <small>تلقي إشعارات عند ظهور ترندات جديدة</small>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <span>أفكار المحتوى</span>
+                                        <small>تلقي اقتراحات أفكار محتوى جديدة</small>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <span>تذكير النشر</span>
+                                        <small>تذكيرك بأوقات النشر المثلى</small>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-group">
+                                <h4>إشعارات البريد الإلكتروني</h4>
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <span>التقارير الأسبوعية</span>
+                                        <small>تلقي تقرير أسبوعي عن أداء المحتوى</small>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                
+                                <div class="notification-item">
+                                    <div class="notification-info">
+                                        <span>النشرة الإخبارية</span>
+                                        <small>تلقي آخر الأخبار والتحديثات</small>
+                                    </div>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Tab -->
+                    <div class="settings-panel" id="privacy">
+                        <h3>إعدادات الخصوصية</h3>
+                        <div class="privacy-settings">
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h4>مشاركة البيانات</h4>
+                                    <p>السماح بمشاركة البيانات لتحسين الخدمة</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="privacy-item">
+                                <div class="privacy-info">
+                                    <h4>الملف الشخصي العام</h4>
+                                    <p>جعل ملفك الشخصي مرئياً للآخرين</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="privacy-actions">
+                                <button class="btn-secondary">تصدير البيانات</button>
+                                <button class="btn-danger">حذف الحساب</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Billing Tab -->
+                    <div class="settings-panel" id="billing">
+                        <h3>الفواتير والاشتراك</h3>
+                        <div class="billing-info">
+                            <div class="current-plan">
+                                <h4>الخطة الحالية</h4>
+                                <div class="plan-card">
+                                    <div class="plan-header">
+                                        <h5>الخطة المميزة</h5>
+                                        <span class="plan-price">99 ريال/شهر</span>
+                                    </div>
+                                    <div class="plan-features">
+                                        <p>✓ جميع أدوات الذكاء الاصطناعي</p>
+                                        <p>✓ تحليلات متقدمة</p>
+                                        <p>✓ جدولة غير محدودة</p>
+                                    </div>
+                                    <button class="btn-secondary">تغيير الخطة</button>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-method">
+                                <h4>طريقة الدفع</h4>
+                                <div class="payment-card">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>**** **** **** 1234</span>
+                                    <button class="btn-secondary">تحديث</button>
+                                </div>
+                            </div>
+                            
+                            <div class="billing-history">
+                                <h4>سجل الفواتير</h4>
+                                <div class="invoice-list">
+                                    <div class="invoice-item">
+                                        <span>يناير 2024</span>
+                                        <span>99 ريال</span>
+                                        <button class="btn-link">تحميل</button>
+                                    </div>
+                                    <div class="invoice-item">
+                                        <span>ديسمبر 2023</span>
+                                        <span>99 ريال</span>
+                                        <button class="btn-link">تحميل</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/pages.js"></script>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الترندات - صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/trends.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+              <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title">الترندات والتحليلات</h1>
+                    <p class="page-subtitle">اكتشف أحدث الترندات وحلل أداء محتواك</p>
+                </div>
+                <div class="header-right">
+                    <div class="header-search">
+                        <input type="text" placeholder="البحث في الترندات..." class="search-input" id="trendSearch">
+                        <button class="search-btn" onclick="searchTrends()">🔍</button>
+                    </div>
+                    <div class="header-notifications">
+                        <button class="notification-btn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="header-profile">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <span class="profile-name">أحمد محمد</span>
+                            <span class="profile-role">صانع محتوى</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Trends Content -->
+            <div class="trends-content">
+                <!-- Filters -->
+                <div class="trends-filters">
+                    <div class="filter-group">
+                        <label class="filter-label">المنصة:</label>
+                        <select class="filter-select" id="platformFilter" onchange="filterTrends()">
+                            <option value="all">جميع المنصات</option>
+                            <option value="instagram">إنستغرام</option>
+                            <option value="tiktok">تيك توك</option>
+                            <option value="youtube">يوتيوب</option>
+                            <option value="twitter">تويتر</option>
+                        
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">الفترة الزمنية:</label>
+                        <select class="filter-select" id="timeFilter" onchange="filterTrends()">
+                            <option value="today">اليوم</option>                           <option value="week">هذا الأسبوع</option>
+                            <option value="month">هذا الشهر</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">الفئة:</label>
+                        <select class="filter-select" id="categoryFilter" onchange="filterTrends()">
+                            <option value="all">جميع الفئات</option>
+                            <option value="technology">تكنولوجيا</option>
+                            <option value="lifestyle">نمط الحياة</option>
+                            <option value="entertainment">ترفيه</option>
+                            <option value="business">أعمال</option>
+                            <option value="education">تعليم</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="trending-section">
+                    <div class="section-header">
+                        <h2 class="section-title">الموضوعات الرائجة</h2>
+                        <div class="refresh-btn" onclick="refreshTrends()">
+                            <span class="refresh-icon">🔄</span>
+                            تحديث
+                        </div>
+                    </div>
+
+                    <div class="trending-grid" id="trendingGrid">
+                        <!-- Trending items will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Hashtags Analysis -->
+                <div class="hashtags-section">
+                    <div class="section-header">
+                        <h2 class="section-title">تحليل الهاشتاغات</h2>
+                        <div class="view-toggle">
+                            <button class="toggle-btn active" onclick="toggleHashtagView('trending')">الرائجة</button>
+                            <button class="toggle-btn" onclick="toggleHashtagView('recommended')">المقترحة</button>
+                        </div>
+                    </div>
+
+                    <div class="hashtags-container">
+                        <div class="hashtag-cloud" id="hashtagCloud">
+                            <!-- Hashtags will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Dashboard -->
+                <div class="analytics-section">
+                    <div class="section-header">
+                        <h2 class="section-title">تحليلات الأداء</h2>
+                        <div class="analytics-period">
+                            <button class="period-btn active" onclick="changePeriod('7d')">7 أيام</button>
+                            <button class="period-btn" onclick="changePeriod('30d')">30 يوم</button>
+                            <button class="period-btn" onclick="changePeriod('90d')">90 يوم</button>
+                        </div>
+                    </div>
+
+                    <div class="analytics-grid">
+                        <!-- Performance Metrics -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3 class="metric-title">معدل التفاعل</h3>
+                                <span class="metric-change positive">+12.5%</span>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="engagementChart" width="300" height="150"></canvas>
+                            </div>
+                            <div class="metric-value">8.4%</div>
+                        السلام على الامام الحسين 
+                        </div>
+
+                        <!-- Reach Metrics -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3 class="metric-title">الوصول</h3>
+                                <span class="metric-change positive">+8.2%</span>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="reachChart" width="300" height="150"></canvas>
+                            </div>
+                            
+                            <div class="metric-value">45.2K</div>
+                            السلام على فاطمة البتول 
+                            
+                        </div>
+
+                        <!-- Impressions -->
+                        <div class="metric-card">
+                            <div class="metric-header">
+                                <h3 class="metric-title">الانطباعات</h3>
+                                <span class="metric-change negative">-2.1%</span>
+                            </div>
+                            <div class="metric-chart">
+                                <canvas id="impressionsChart" width="300" height="150"></canvas>
+                            </div>
+                            <div class="metric-value">156.7K</div>
+                        </div>
+
+                        <!-- Best Performing Content -->
+                        <div class="content-performance">
+                            <h3 class="performance-title">أفضل المحتويات أداءً</h3>
+                            <div class="performance-list" id="performanceList">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Competitor Analysis -->
+                <div class="competitor-section">
+                    <div class="section-header">
+                        <h2 class="section-title">تحليل المنافسين</h2>
+                        <button class="add-competitor-btn" onclick="addCompetitor()">
+                            <span>+</span>
+                            إضافة منافس
+                        </button>
+                    </div>
+
+                    <div class="competitor-grid" id="competitorGrid">
+                        <!-- Competitor cards will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/dashboards.js"></script>
+    <script src="../js/trends.js"></script>
+    <script src="../js/layout.js"></script>
+</body>
+</html>

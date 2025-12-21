@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بنك الأفكار - منصة صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                             </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+              <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title"> بنك الافكار </h1>
+                    <p class="page-subtitle">    أكتشف افكار محتوى جديدة ومبتكره  </p>
+                </div>
+                <div class="header-right">
+                    <div class="header-search">
+                        <input type="text" placeholder="البحث..." class="search-input">
+                        <button class="search-btn">🔍</button>
+                    </div>
+                    <div class="header-notifications">
+                        <button class="notification-btn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="header-profile">
+                        <div class="profile-avatar">👤</div>
+                        <div class="profile-info">
+                            <span class="profile-name">أحمد محمد</span>
+                            <span class="profile-role">صانع محتوى</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Header -->
+            
+            <!-- Ideas Content -->
+            <div class="ideas-container">
+                <!-- Filters -->
+                <div class="ideas-filters">
+                    <div class="filter-group">
+                        <label>الفئة:</label>
+                        <select id="categoryFilter">
+                            <option value="all">جميع الفئات</option>
+                            <option value="social">وسائل التواصل</option>
+                            <option value="video">فيديو</option>
+                            <option value="blog">مدونة</option>
+                            <option value="marketing">تسويق</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>المنصة:</label>
+                        <select id="platformFilter">
+                            <option value="all">جميع المنصات</option>
+                            <option value="instagram">إنستغرام</option>
+                            <option value="tiktok">تيك توك</option>
+                            <option value="youtube">يوتيوب</option>
+                            <option value="twitter">تويتر</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>الصعوبة:</label>
+                        <select id="difficultyFilter">
+                            <option value="all">جميع المستويات</option>
+                            <option value="easy">سهل</option>
+                            <option value="medium">متوسط</option>
+                            <option value="hard">صعب</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>النجاح:</label>
+                        <select id="successFilter">
+                            <option value="all">جميع الأفكار</option>
+                            <option value="successful">الأفكار الناجحة فقط</option>
+                        </select>
+                    </div>
+                    <button class="add-idea-btn" id="addIdeaBtn">
+                        <i class="fas fa-plus"></i>
+                        إضافة فكرة جديدة
+                    </button>
+                </div>
+
+                <!-- Ideas Grid -->
+                <div class="ideas-grid" id="ideasGrid">
+                    <!-- Ideas will be populated by JavaScript -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-arrow-down"></i>
+                        تحميل المزيد
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Idea Modal -->
+    <div class="modal" id="addIdeaModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>إضافة فكرة جديدة</h3>
+                <button class="modal-close" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addIdeaForm">
+                    <div class="form-group">
+                        <label>عنوان الفكرة</label>
+                        <input type="text" id="ideaTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label>الوصف</label>
+                        <textarea id="ideaDescription" rows="4" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الفئة</label>
+                            <select id="ideaCategory" required>
+                                <option value="">اختر الفئة</option>
+                                <option value="social">وسائل التواصل</option>
+                                <option value="video">فيديو</option>
+                                <option value="blog">مدونة</option>
+                                <option value="marketing">تسويق</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>المنصة</label>
+                            <select id="ideaPlatform" required>
+                                <option value="">اختر المنصة</option>
+                                <option value="instagram">إنستغرام</option>
+                                <option value="tiktok">تيك توك</option>
+                                <option value="youtube">يوتيوب</option>
+                                <option value="twitter">تويتر</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>الكلمات المفتاحية</label>
+                        <input type="text" id="ideaTags" placeholder="أدخل الكلمات مفصولة بفاصلة">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelBtn">إلغاء</button>
+                        <button type="submit" class="btn-primary">إضافة الفكرة</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/pages.js"></script>
+</body>
+</html>

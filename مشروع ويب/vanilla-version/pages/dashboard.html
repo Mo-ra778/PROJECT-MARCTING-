@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+    
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title">لوحة التحكم</h1>
+                    <p class="page-subtitle">مرحباً بك، إليك نظرة عامة على أداء محتواك</p>
+                </div>
+                <div class="header-right">
+                    <div class="header-search">
+                        <input type="text" placeholder="البحث..." class="search-input">
+                        <button class="search-btn"></button>
+                    </div>
+                    <div class="header-notifications">
+                        <button class="notification-btn">
+                            <span class="notification-icon">🔔</span>
+                            <span class="notification-badge">3</span>
+                        </button>
+                    </div>
+                    <div class="header-profile">
+                        <div class="profile-avatar"></div>
+                        <div class="profile-info">
+                            <span class="profile-name">edreesi </span>
+                            <span class="profile-role">صانع محتوى</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Platform Selector -->
+            <div class="platform-selector">
+                <label class="selector-label">اختر المنصة:</label>
+                <select class="platform-select" id="platformSelect" onchange="updatePlatformStats()">
+                    <option value="all">جميع المنصات</option>
+                    <option value="instagram">إنستغرام</option>
+                    <option value="tiktok">تيك توك</option>
+                    <option value="youtube">يوتيوب</option>
+                    <option value="twitter">تويتر</option>
+                </select>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="followersCount">12,543</h3>
+                            <p class="stat-label">المتابعون الجدد</p>
+                            <span class="stat-change positive">+12.5%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">❤️</div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="likesCount">45,231</h3>
+                            <p class="stat-label">الإعجابات</p>
+                            <span class="stat-change positive">+8.2%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">💬</div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="commentsCount">2,156</h3>
+                            <p class="stat-label">التعليقات</p>
+                            <span class="stat-change positive">+15.3%</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">👁️</div>
+                        <div class="stat-info">
+                            <h3 class="stat-value" id="viewsCount">156,789</h3>
+                            <p class="stat-label">المشاهدات</p>
+                            <span class="stat-change negative">-2.1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="chart-section">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">التفاعل خلال آخر 30 يوم</h3>
+                            <div class="chart-actions">
+                                <button class="chart-btn active">يومي</button>
+                                <button class="chart-btn">أسبوعي</button>
+                                <button class="chart-btn">شهري</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="engagementChart" width="800" height="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Quick Actions -->
+                <div class="dashboard-grid">
+                    <!-- Recent Activity -->
+                    <div class="activity-card">
+                        <div class="card-header">
+                            <h3 class="card-title">النشاط الأخير</h3>
+                            <div class="update-badge">
+                                آخر تحديث: منذ 5 دقائق
+                            </div>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon trend">📈</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">هاشتاغ #تصميم_جرافيك يتصدر الترندات</p>
+                                    <span class="activity-time">منذ 10 دقائق</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon post">📝</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تم نشر منشورك على إنستغرام بنجاح</p>
+                                    <span class="activity-time">منذ 30 دقيقة</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon idea">💡</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">فكرة جديدة متاحة: "محتوى تفاعلي للصيف"</p>
+                                    <span class="activity-time">منذ ساعة</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon analytics">📊</div>
+                                <div class="activity-content">
+                                    <p class="activity-text">تقرير الأداء الأسبوعي جاهز للمراجعة</p>
+                                    <span class="activity-time">منذ 2 ساعة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="actions-card">
+                        <div class="card-header">
+                            <h3 class="card-title">إجراءات سريعة</h3>
+                        </div>
+                        <div class="actions-grid">
+                            <a href="schedule-post.html" class="action-btn">
+                                <div class="action-icon">
+                                    <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt=""width=40 height="40">
+                                </div>
+                                <span class="action-text">جدولة منشور</span>
+                            </a>
+                            <a href="ai-tools.html" class="action-btn">
+                                <div class="action-icon">
+                                    <img src="icon/setting.png" alt=""width=40 height="40">
+                                </div>
+                                <span class="action-text">أدوات AI</span>
+                            </a>
+                            <a href="trends.html" class="action-btn">
+                                <div class="action-icon">
+                                    <img src="icon/search.png" alt=""width=40 height="40">
+                                </div>
+                                <span class="action-text">اكتشف الترندات</span>
+                            </a>
+                            <a href="ideas.html" class="action-btn">
+                                <div class="action-icon"> 
+                                    <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt=""width=40 height="40">
+                                </div>
+                                <span class="action-text">بنك الأفكار</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/dashboards.js"></script>
+    <script src="../js/chart.js"></script>
+    <script src="../js/layout.js"></script>
+    
+</body>
+</html>

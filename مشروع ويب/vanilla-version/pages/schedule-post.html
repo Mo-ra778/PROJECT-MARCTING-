@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جدولة منشور - منصة صناع المحتوى</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                        <img src="logo/file_00000000a6f4620a9c896f527ee677d3.png" alt="" class="brand-text" width="80" height="60">
+                </div>
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <span class="toggle-icon">☰</span>
+                </button>
+            </div>
+
+              <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <span class="nav-icon">
+                            <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="trends.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/search.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">الترندات</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ai-tools.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/setting.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أدوات AI</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="ideas.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/٢٠٢٥٠٩٢١_١٦٣٠٢٢.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">بنك الأفكار</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="posting-times.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/wifi.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">أوقات النشر</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="schedule-post.html" class="nav-link">
+                            <span class="nav-icon">
+                                <img src="icon/growth.png" alt="" width="20" height="20">
+                            </span>
+                            <span class="nav-text">جدولة منشور</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="sidebar-footer">
+                    <button class="nav-link logout-btn" onclick="logout()">
+                        <span class="nav-icon">🚪</span>
+                        <span class="nav-text">تسجيل الخروج</span>
+                    </button>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>جدولة منشور جديد</h1>
+                    <p>أنشئ وجدول منشورك عبر المنصات المختلفة</p>
+                </div>
+                <div class="header-right">
+                    <button class="save-draft-btn" id="saveDraftBtn">
+                        <i class="fas fa-save"></i>
+                        حفظ كمسودة
+                    </button>
+                </div>
+            </header>
+
+            <!-- Schedule Post Content -->
+            <div class="schedule-post-container">
+                <form id="schedulePostForm">
+                    <!-- Content Section -->
+                    <div class="post-section">
+                        <h3>محتوى المنشور</h3>
+                        <div class="content-editor">
+                            <textarea id="postContent" placeholder="اكتب محتوى منشورك هنا..." rows="6"></textarea>
+                            <div class="editor-tools">
+                                <button type="button" class="tool-btn" data-tool="bold">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button type="button" class="tool-btn" data-tool="italic">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button type="button" class="tool-btn" data-tool="emoji">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+                                <button type="button" class="tool-btn" data-tool="hashtag">
+                                    <i class="fas fa-hashtag"></i>
+                                </button>
+                                <span class="char-count">0/2200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media Section -->
+                    <div class="post-section">
+                        <h3>الوسائط</h3>
+                        <div class="media-upload">
+                            <div class="upload-area" id="uploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>اسحب الملفات هنا أو انقر للتحميل</p>
+                                <input type="file" id="mediaInput" multiple accept="image/*,video/*">
+                            </div>
+                            <div class="media-preview" id="mediaPreview">
+                                <!-- Uploaded media will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hashtags Section -->
+                    <div class="post-section">
+                        <h3>الهاشتاغات</h3>
+                        <div class="hashtags-container">
+                            <input type="text" id="hashtagInput" placeholder="أضف هاشتاغ...">
+                            <button type="button" id="addHashtagBtn">إضافة</button>
+                        </div>
+                        <div class="hashtags-list" id="hashtagsList">
+                            <!-- Hashtags will appear here -->
+                        </div>
+                        <div class="suggested-hashtags">
+                            <h4>هاشتاغات مقترحة:</h4>
+                            <div class="suggested-tags">
+                                <span class="suggested-tag">#محتوى</span>
+                                <span class="suggested-tag">#إبداع</span>
+                                <span class="suggested-tag">#تسويق</span>
+                                <span class="suggested-tag">#سوشيال_ميديا</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platforms Section -->
+                    <div class="post-section">
+                        <h3>المنصات</h3>
+                        <div class="platforms-grid">
+                            <label class="platform-option">
+                                <input type="checkbox" name="platforms" value="instagram" checked>
+                                <div class="platform-card">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>إنستغرام</span>
+                                </div>
+                            </label>
+                            <label class="platform-option">
+                                <input type="checkbox" name="platforms" value="tiktok">
+                                <div class="platform-card">
+                                    <i class="fab fa-tiktok"></i>
+                                    <span>تيك توك</span>
+                                </div>
+                            </label>
+                            <label class="platform-option">
+                                <input type="checkbox" name="platforms" value="youtube">
+                                <div class="platform-card">
+                                    <i class="fab fa-youtube"></i>
+                                    <span>يوتيوب</span>
+                                </div>
+                            </label>
+                            <label class="platform-option">
+                                <input type="checkbox" name="platforms" value="twitter">
+                                <div class="platform-card">
+                                    <i class="fab fa-twitter"></i>
+                                    <span>تويتر</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Scheduling Section -->
+                    <div class="post-section">
+                        <h3>جدولة النشر</h3>
+                        <div class="scheduling-options">
+                            <label class="schedule-option">
+                                <input type="radio" name="scheduleType" value="now" checked>
+                                <span>نشر الآن</span>
+                            </label>
+                            <label class="schedule-option">
+                                <input type="radio" name="scheduleType" value="later">
+                                <span>جدولة لوقت لاحق</span>
+                            </label>
+                            <label class="schedule-option">
+                                <input type="radio" name="scheduleType" value="optimal">
+                                <span>الوقت الأمثل</span>
+                            </label>
+                        </div>
+                        
+                        <div class="schedule-details" id="scheduleDetails" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>التاريخ</label>
+                                    <input type="date" id="scheduleDate">
+                                </div>
+                                <div class="form-group">
+                                    <label>الوقت</label>
+                                    <input type="time" id="scheduleTime">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="optimal-times" id="optimalTimes" style="display: none;">
+                            <h4>الأوقات المثلى المقترحة:</h4>
+                            <div class="optimal-suggestions">
+                                <button type="button" class="optimal-btn">اليوم 8:00 م</button>
+                                <button type="button" class="optimal-btn">غداً 7:30 م</button>
+                                <button type="button" class="optimal-btn">الثلاثاء 9:00 م</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="history.back()">إلغاء</button>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            جدولة المنشور
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+        <script src="../js/layout.js"></script>
+
+    <script src="../js/pages.js"></script>
+</body>
+</html>
