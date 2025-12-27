@@ -73,8 +73,8 @@
 - **Canvas API** - الرسوم البيانية
 - **LocalStorage** - تخزين البيانات محلياً
 - **Google Fonts (Cairo)** - الخط العربي
-- **Font Awesome** - الأيقونات
-
+- **Font Awesome** -الأيقونات
+- 
 ---
 
 ## 📁 هيكل المشروع
@@ -131,15 +131,6 @@ cd mors-platform/مشروع\ ويب/vanilla-version
 
 ---
 
-## 🤝 المساهمة
-
-نرحب بمساهماتكم! يرجى:
-
-1. عمل Fork للمشروع
-2. إنشاء Branch جديد (`git checkout -b feature/amazing-feature`)
-3. عمل Commit للتغييرات (`git commit -m 'Add amazing feature'`)
-4. رفع التغييرات (`git push origin feature/amazing-feature`)
-5. فتح Pull Request
 
 ---
 
@@ -151,7 +142,7 @@ cd mors-platform/مشروع\ ويب/vanilla-version
 
 ## 👨‍💻 المطور
 
-**مشروع ويب الترم الأول**
+**mohammed edrees**
 
 ---
 
